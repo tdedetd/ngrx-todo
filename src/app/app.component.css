@@ -1,0 +1,8 @@
+.app__header {
+  position: sticky;
+  top: 0;
+}
+
+.app__content {
+  margin-top: 1em;
+}
