@@ -1,0 +1,11 @@
+.header {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(45deg, #00b7ff, #1900ff);
+  color: #fff;
+  box-shadow: 0 0 4px #535353;
+}
+
+.header__title {
+  padding: .3em .5em;
+}
