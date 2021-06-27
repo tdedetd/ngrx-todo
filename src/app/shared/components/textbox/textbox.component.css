@@ -1,0 +1,7 @@
+.textbox {
+  background-color: transparent;
+  border: none;
+  border-bottom: solid 1px #555;
+  font-size: 1em;
+  padding: .5em;
+}
