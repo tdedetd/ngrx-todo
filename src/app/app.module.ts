@@ -9,13 +9,15 @@ import { ContentComponent } from './components/content/content.component';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { reducers } from './store/reducers';
 import { effects } from './store/effetcs';
+import { TodoItemsComponent } from './components/todo-items/todo-items.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ContentComponent,
-    TodoItemComponent
+    TodoItemComponent,
+    TodoItemsComponent
   ],
   imports: [
     BrowserModule,
