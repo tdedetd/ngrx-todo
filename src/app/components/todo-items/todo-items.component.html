@@ -1,7 +1,5 @@
 <ul class="todo-list">
   <li *ngFor="let item of (items$ | async)" class="todo-list__li">
-    <div class="todo-list__item-container">
-      <todo-todo-item [item]="item"></todo-todo-item>
-    </div>
+    <todo-todo-item [item]="item"></todo-todo-item>
   </li>
 </ul>

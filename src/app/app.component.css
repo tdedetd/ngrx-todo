@@ -4,5 +4,6 @@
 }
 
 .app__content {
-  margin-top: 1.7em;
+  margin: 1.7em auto 0;
+  max-width: 30em;
 }

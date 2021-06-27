@@ -7,8 +7,3 @@
 .todo-list__li {
   margin: 1em;
 }
-
-.todo-list__item-container {
-  margin: 0 auto;
-  max-width: 30em;
-}
