@@ -4,6 +4,7 @@ import { TodoItem } from "src/app/models/todo-item";
 export enum ETodoActions {
   LoadTodoList = '[Todo] Load Todo List',
   LoadTodoListSuccess = '[Todo] Load Todo List Success',
+  AddItem = '[Todo] Add Item'
 }
 
 export class LoadTodoList implements Action {
@@ -15,6 +16,12 @@ export class LoadTodoListSuccess implements Action {
   constructor(public payload: TodoItem[]) {}
 }
 
+export class AddItem implements Action {
+  public readonly type = ETodoActions.AddItem;
+  constructor(public payload: TodoItem) {}
+}
+
 export type TodoActions =
   LoadTodoList |
-  LoadTodoListSuccess;
+  LoadTodoListSuccess |
+  AddItem;

@@ -11,6 +11,11 @@ export const todoReducer = (
         ...state,
         items: action.payload
       }
+    case ETodoActions.AddItem:
+      return {
+        ...state,
+        items: [...state.items, action.payload]
+      }
     default:
       return state;
   }
