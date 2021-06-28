@@ -14,7 +14,7 @@ export const todoReducer = (
     case ETodoActions.AddItem:
       return {
         ...state,
-        items: [...state.items, action.payload]
+        items: [...state.items, { text: action.payload, checked: false }]
       }
     default:
       return state;

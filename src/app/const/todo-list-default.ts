@@ -2,15 +2,23 @@ import { TodoItem } from "../models/todo-item";
 
 export const TODO_LIST_DEFAULT: TodoItem[] = [
   {
-    text: 'Item 1',
+    text: 'Wash dishes',
     checked: false
   },
   {
-    text: 'Item 2',
+    text: 'Buy apples',
     checked: false
   },
   {
-    text: 'Item 3',
+    text: 'Eat porridge',
+    checked: false
+  },
+  {
+    text: 'Invent perpetual motion machine',
+    checked: false
+  },
+  {
+    text: 'Learn english',
     checked: false
   }
 ];

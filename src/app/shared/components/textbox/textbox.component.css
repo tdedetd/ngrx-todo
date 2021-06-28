@@ -4,4 +4,5 @@
   border-bottom: solid 1px #555;
   font-size: 1em;
   padding: .5em;
+  box-sizing: border-box;
 }

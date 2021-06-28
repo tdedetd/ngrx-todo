@@ -18,7 +18,7 @@ export class LoadTodoListSuccess implements Action {
 
 export class AddItem implements Action {
   public readonly type = ETodoActions.AddItem;
-  constructor(public payload: TodoItem) {}
+  constructor(public payload: string) {}
 }
 
 export type TodoActions =

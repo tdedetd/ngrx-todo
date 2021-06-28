@@ -1,3 +1,7 @@
-.content__add-item-panel {
+.add-item-panel {
   margin: 1em;
+}
+
+.add-item-panel__textbox input {
+  width: 100%;
 }
