@@ -11,7 +11,6 @@ import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { reducers } from './store/reducers';
 import { effects } from './store/effetcs';
 import { TodoItemsComponent } from './components/todo-items/todo-items.component';
-import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +22,6 @@ import { SharedModule } from './shared/shared.module';
   ],
   imports: [
     BrowserModule,
-    SharedModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot(effects),
     FormsModule
