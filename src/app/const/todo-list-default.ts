@@ -18,7 +18,7 @@ export const TODO_LIST_DEFAULT: TodoItem[] = [
     checked: false
   },
   {
-    text: 'Learn english',
+    text: 'Learn English',
     checked: false
   }
 ];

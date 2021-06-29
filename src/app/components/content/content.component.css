@@ -1,7 +1,32 @@
 .add-item-panel {
-  margin: 1em;
+  margin: 1.5em 1em 1em;
+  display: flex;
+}
+
+.add-item-panel__textbox {
+  width: 100px;
+  margin-right: 1em;
+  flex-grow: 1;
 }
 
 .add-item-panel__textbox input {
   width: 100%;
+}
+
+/* TODO: button class */
+.add-item-panel__add-button {
+  width: 50px;
+  text-align: center;
+  background-color: #1900ff;
+  border: none;
+  cursor: pointer;
+}
+
+.add-item-panel__add-button:hover {
+  background-color: #4934ff;
+}
+
+.add-item-panel__add-button-svg {
+  width: 1.7em;
+  fill: white;
 }

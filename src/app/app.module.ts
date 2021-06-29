@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { BrowserModule } from '@angular/platform-browser';
@@ -24,7 +25,8 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     SharedModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot(effects)
+    EffectsModule.forRoot(effects),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
