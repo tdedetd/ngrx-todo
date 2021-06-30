@@ -1,8 +1,13 @@
 <todo-todo-items></todo-todo-items>
 
 <div class="add-item-panel">
-  <!-- TODO: enter -->
-  <input class="add-item-panel__textbox textbox" type="text" placeholder="Type todo item here" [(ngModel)]="addItemText">
+  <input
+    class="add-item-panel__textbox textbox"
+    type="text"
+    placeholder="Type todo item here"
+    [(ngModel)]="addItemText"
+    (keyup.enter)="onInputItemEnter()">
+
   <button class="add-item-panel__add-button" [disabled]="!addItemText" (click)="onAddItemClick()">
     <img class="add-item-panel__add-button-svg" src="../../../assets/icons/plus-solid.svg" alt="Add">
   </button>

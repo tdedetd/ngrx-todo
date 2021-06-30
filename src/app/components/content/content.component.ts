@@ -24,10 +24,19 @@ export class ContentComponent implements OnInit {
     this.addItem();
   }
 
+  onInputItemEnter() {
+    if (this.addItemText) {
+      this.addItem();
+    }
+  }
+
   private addItem() {
     this.store.dispatch(new AddItem(this.addItemText));
     this.addItemText = '';
-    // TODO: scroll to bottom
+    
+    setTimeout(() => {
+      window.scrollTo(0, document.body.scrollHeight);
+    });
   }
 
 }
