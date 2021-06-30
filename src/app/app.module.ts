@@ -11,6 +11,7 @@ import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { reducers } from './store/reducers';
 import { effects } from './store/effetcs';
 import { TodoItemsComponent } from './components/todo-items/todo-items.component';
+import { TodoService } from './services/todo.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import { TodoItemsComponent } from './components/todo-items/todo-items.component
     EffectsModule.forRoot(effects),
     FormsModule
   ],
-  providers: [],
+  providers: [
+    TodoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -27,6 +27,7 @@ export class ContentComponent implements OnInit {
   private addItem() {
     this.store.dispatch(new AddItem(this.addItemText));
     this.addItemText = '';
+    // TODO: scroll to bottom
   }
 
 }
