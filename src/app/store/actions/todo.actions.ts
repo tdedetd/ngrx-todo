@@ -4,7 +4,8 @@ import { TodoItem } from "src/app/models/todo-item";
 export enum ETodoActions {
   LoadTodoList = '[Todo] Load Todo List',
   LoadTodoListSuccess = '[Todo] Load Todo List Success',
-  AddItem = '[Todo] Add Item'
+  AddItem = '[Todo] Add Item',
+  SetChecked = '[Todo] Set Checked',
 }
 
 export class LoadTodoList implements Action {
@@ -21,7 +22,13 @@ export class AddItem implements Action {
   constructor(public payload: string) {}
 }
 
+export class SetChecked implements Action {
+  public readonly type = ETodoActions.SetChecked;
+  constructor(public payload: { item: TodoItem, checked: boolean }) {}
+}
+
 export type TodoActions =
   LoadTodoList |
   LoadTodoListSuccess |
-  AddItem;
+  AddItem |
+  SetChecked;

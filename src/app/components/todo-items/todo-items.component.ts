@@ -5,6 +5,7 @@ import { tap } from 'rxjs/operators';
 
 import { TodoItem } from 'src/app/models/todo-item';
 import { TodoService } from 'src/app/services/todo.service';
+import { SetChecked } from 'src/app/store/actions/todo.actions';
 import { selectTodoItems } from 'src/app/store/selectors/todo.selectors';
 import { AppState } from 'src/app/store/state';
 
@@ -26,6 +27,10 @@ export class TodoItemsComponent implements OnInit {
     this.items$ = this.store.select(selectTodoItems).pipe(
       tap(items => this.todo.save(items))
     );
+  }
+
+  onItemCheckedChange(item: TodoItem, checked: boolean) {
+    this.store.dispatch(new SetChecked({ item, checked }));
   }
 
 }

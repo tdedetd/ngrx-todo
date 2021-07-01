@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { TodoItem } from 'src/app/models/todo-item';
 
 @Component({
@@ -12,9 +12,15 @@ export class TodoItemComponent implements OnInit {
 
   @Input() item: TodoItem;
 
+  @Output() checkedChange: EventEmitter<boolean> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onInputChange(checked: boolean) {
+    this.checkedChange.emit(checked);
   }
 
 }

@@ -1,1 +1,6 @@
-<div class="todo-item">{{ item.text }}</div>
+<div class="todo-item">
+  <label>
+    <input type="checkbox" [ngModel]="item.checked" (ngModelChange)="onInputChange($event)">
+    {{ item.text }}
+  </label>
+</div>
