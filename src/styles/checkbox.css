@@ -1,0 +1,49 @@
+.checkbox input {
+  position: absolute;
+  left: -9000px;
+  opacity: 0;
+}
+
+.checkbox span {
+  padding-left: 2em;
+  position: relative;
+  display: block;
+}
+
+.checkbox span::before,
+.checkbox span::after {
+  content: "";
+  position: absolute;
+}
+
+.checkbox span::before {
+  background-color: #eee;
+  width: .8em;
+  height: .8em;
+  left: .1em;
+  top: .1em;
+}
+
+.checkbox input + span::after {
+  left: -.1em;
+  top: -.2em;
+  border: solid .2em #979797;
+  border-top: none;
+  border-right: none;
+  width: 1.2em;
+  height: .6em;
+  transform: rotate(-55deg) skew(-15deg) scale(1);
+  transition:
+    opacity .2s linear,
+    transform .2s cubic-bezier(0.21, 0.76, 0.34, 1);
+}
+
+.checkbox input:checked + span::after {
+  opacity: 1;
+  transform: rotate(-55deg) skew(-15deg) scale(1);
+}
+
+.checkbox input:not(:checked) + span::after {
+  opacity: 0;
+  transform: rotate(-55deg) skew(-15deg) scale(2);
+}
