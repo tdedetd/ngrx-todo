@@ -14,9 +14,15 @@ export class TodoItemComponent implements OnInit {
 
   @Output() checkedChange: EventEmitter<boolean> = new EventEmitter();
 
+  @Output() remove: EventEmitter<void> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onClick() {
+    this.remove.emit();
   }
 
   onInputChange(checked: boolean) {

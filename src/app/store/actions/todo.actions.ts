@@ -6,6 +6,7 @@ export enum ETodoActions {
   LoadTodoListSuccess = '[Todo] Load Todo List Success',
   AddItem = '[Todo] Add Item',
   SetChecked = '[Todo] Set Checked',
+  RemoveItem = '[Todo] Remove Item',
 }
 
 export class LoadTodoList implements Action {
@@ -27,8 +28,14 @@ export class SetChecked implements Action {
   constructor(public payload: { item: TodoItem, checked: boolean }) {}
 }
 
+export class RemoveItem implements Action {
+  public readonly type = ETodoActions.RemoveItem;
+  constructor(public payload: TodoItem) {}
+}
+
 export type TodoActions =
   LoadTodoList |
   LoadTodoListSuccess |
   AddItem |
-  SetChecked;
+  SetChecked |
+  RemoveItem;

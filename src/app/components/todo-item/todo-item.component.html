@@ -3,4 +3,5 @@
     <input class="todo-item__input" type="checkbox" [ngModel]="item.checked" (ngModelChange)="onInputChange($event)">
     <span class="todo-item__span">{{ item.text }}</span>
   </label>
+  <img class="todo-item__remove" src="../../../assets/icons/trash-solid.svg" alt="Remove" (click)="onClick()">
 </div>
