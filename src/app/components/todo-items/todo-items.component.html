@@ -1,5 +1,5 @@
 <ul class="todo-list">
-  <li *ngFor="let item of (items$ | async)" class="todo-list__li">
+  <li *ngFor="let item of items" class="todo-list__li">
     <todo-todo-item
       [item]="item"
       (checkedChange)="onItemCheckedChange(item, $event)"
