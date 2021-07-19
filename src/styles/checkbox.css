@@ -27,7 +27,7 @@
 .checkbox input + span::after {
   left: -.1em;
   top: -.2em;
-  border: solid .2em #979797;
+  border: solid .2em #ccc;
   border-top: none;
   border-right: none;
   width: 1.2em;

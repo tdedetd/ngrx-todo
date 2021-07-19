@@ -6,6 +6,10 @@
   justify-content: space-between;
 }
 
+.todo-item > .checkbox {
+  cursor: pointer;
+}
+
 .todo-item__input:checked + .todo-item__span {
   color: #c5c5c5;
 }

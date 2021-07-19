@@ -27,7 +27,7 @@ export const todoReducer = (
         ...state,
         items: [
           ...items.slice(0, index),
-          { text: action.payload.item.text, checked: action.payload.checked },
+          { ...action.payload.item, checked: action.payload.checked },
           ...items.slice(index + 1, items.length)
         ]
       };
