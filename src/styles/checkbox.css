@@ -1,3 +1,7 @@
+.checkbox {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .checkbox input {
   position: absolute;
   left: -9000px;
