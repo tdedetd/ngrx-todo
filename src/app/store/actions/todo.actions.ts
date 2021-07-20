@@ -25,7 +25,7 @@ export class AddItem implements Action {
 
 export class SetChecked implements Action {
   public readonly type = ETodoActions.SetChecked;
-  constructor(public payload: { item: TodoItem, checked: boolean }) {}
+  constructor(public payload: { id: number, checked: boolean }) {}
 }
 
 export class RemoveItem implements Action {

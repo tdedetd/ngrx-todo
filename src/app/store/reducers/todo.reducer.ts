@@ -6,34 +6,35 @@ export const todoReducer = (
   state: TodoState = initialTodoState,
   action: TodoActions
 ): TodoState => {
-  let items: TodoItem[];
-  let index: number;
-
   switch (action.type) {
-    case ETodoActions.LoadTodoListSuccess:
-      return {
-        ...state,
-        items: action.payload
-      };
+    case ETodoActions.LoadTodoListSuccess: {
+      const items = action.payload;
+      const idNext = items.length === 0 ? 0 : Math.max(...items.map(item => item.id)) + 1;
+      return { ...state, idNext, items };
+    }
     case ETodoActions.AddItem:
       return {
         ...state,
-        items: [...state.items, { text: action.payload, checked: false }]
+        idNext: state.idNext + 1,
+        items: [...state.items, { id: state.idNext, text: action.payload, checked: false }]
       };
-    case ETodoActions.SetChecked:
-      items = state.items;
-      index = items.indexOf(action.payload.item);
+    case ETodoActions.SetChecked: {
+      const items = state.items;
+      const editedItem = state.items.find(item => item.id === action.payload.id) as TodoItem;
+      const index = items.indexOf(editedItem);
+
       return {
         ...state,
         items: [
           ...items.slice(0, index),
-          { ...action.payload.item, checked: action.payload.checked },
+          { ...editedItem, checked: action.payload.checked },
           ...items.slice(index + 1, items.length)
         ]
       };
-    case ETodoActions.RemoveItem:
-      items = state.items;
-      index = items.indexOf(action.payload);
+    }
+    case ETodoActions.RemoveItem: {
+      const items = state.items;
+      const index = items.indexOf(action.payload);
       return {
         ...state,
         items: [
@@ -41,6 +42,7 @@ export const todoReducer = (
           ...items.slice(index + 1, items.length)
         ]
       };
+    }
     default:
       return state;
   }

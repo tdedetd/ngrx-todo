@@ -6,9 +6,19 @@ export class TodoService {
 
   private readonly key = 'items';
 
-  load(): TodoItem[] {
-    const items = localStorage.getItem(this.key);
-    return items ? JSON.parse(items) : null;
+  load(): TodoItem[] | null {
+    const itemsStr = localStorage.getItem(this.key);
+    if (!itemsStr) return null;
+
+    let items!: TodoItem[];
+    try {
+      items = JSON.parse(itemsStr);
+    } catch (err) {
+      if (err instanceof SyntaxError) return null;
+    }
+
+    items.forEach((item, i) => item.id = i);
+    return items;
   }
 
   save(items: TodoItem[]) {
