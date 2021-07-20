@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, QueryList, ViewChildren, ViewEncapsulation } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { buffer, debounceTime } from 'rxjs/operators';
@@ -6,6 +6,7 @@ import { buffer, debounceTime } from 'rxjs/operators';
 import { TodoItem } from 'src/app/models/todo-item';
 import { RemoveItem, SetChecked } from 'src/app/store/actions/todo.actions';
 import { AppState } from 'src/app/store/state';
+import { TodoItemComponent } from '../todo-item/todo-item.component';
 
 type SetCheckedEvent = {id: number, checked: boolean};
 
@@ -16,7 +17,9 @@ type SetCheckedEvent = {id: number, checked: boolean};
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
-export class TodoItemsComponent implements OnInit {
+export class TodoItemsComponent implements OnInit, AfterViewInit {
+
+  @ViewChildren(TodoItemComponent, { read: ElementRef }) itemElements: QueryList<ElementRef>;
 
   @Input() items: TodoItem[] | null;
 
@@ -37,6 +40,16 @@ export class TodoItemsComponent implements OnInit {
         return acc;
       }, [] as SetCheckedEvent[]).forEach(event => this.store.dispatch(new SetChecked(event)));
     });
+  }
+
+  ngAfterViewInit() {
+    this.itemElements
+      .map(elem => elem.nativeElement.querySelector('.todo-item'))
+      .forEach((elem: HTMLDivElement, index: number) => {
+        elem.classList.add('todo-item_grow');
+        elem.style.transform = 'scale(0)';
+        elem.style.animationDelay = `${0.025 * index}s`;
+      });
   }
 
   onItemCheckedChange(item: TodoItem, checked: boolean) {
