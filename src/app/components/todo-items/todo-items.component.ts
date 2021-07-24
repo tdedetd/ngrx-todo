@@ -31,14 +31,16 @@ export class TodoItemsComponent implements OnInit, AfterViewInit {
     this.setChecked$.pipe(
       buffer(this.setChecked$.pipe(debounceTime(500)))
     ).subscribe(data => {
-      data.reduce((acc, curr) => {
-        const existingItem = acc.find(item => item.id === curr.id);
+      data
+        .reduce((acc, curr) => {
+          const existingItem = acc.find(item => item.id === curr.id);
 
-        if (existingItem) existingItem.checked = curr.checked;
-        else acc.push(curr);
+          if (existingItem) existingItem.checked = curr.checked;
+          else acc.push(curr);
 
-        return acc;
-      }, [] as SetCheckedEvent[]).forEach(event => this.store.dispatch(new SetChecked(event)));
+          return acc;
+        }, [] as SetCheckedEvent[])
+        .forEach(event => this.store.dispatch(new SetChecked(event)));
     });
   }
 

@@ -15,6 +15,7 @@ export class TodoService {
       items = JSON.parse(itemsStr);
     } catch (err) {
       if (err instanceof SyntaxError) return null;
+      else throw err;
     }
 
     items.forEach((item, i) => item.id = i);
